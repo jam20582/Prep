@@ -1,0 +1,18 @@
+#thirdDiv {
+    height: 600px; 
+    width: 500px; 
+    background-color: lightgreen;
+    padding: 50px;
+    border-width: 10px;
+    border-style: dotted;
+    border-color: red;
+}
+
+h1 {
+    color: lightcoral;
+}
+
+#spanId {
+    font-size: 25px;
+    margin: 50px;
+}
