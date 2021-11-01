@@ -3,21 +3,25 @@
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
-
+  return (array[array.length - 1]);
 }
 
 function incrementarPorUno(array) {
   // "array" debe ser una arreglo de números enteros
   // Aumenta cada número por 1 y devuelve el array
   // Tu código:
-
-}
+  for (var i = 0 ; i < array.length ; i++){
+    array[i] = array[i] + 1;
+  }    
+  return array;
+  }
 
 function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
-
+ array.push(elemento);
+ return array;
 }
 
 function dePalabrasAFrase(palabras) {
@@ -26,57 +30,109 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-
+  return palabras.join(' ');
 }
 
 function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-
+  if (array.length === 0){
+    return false;
+  }
+  for (var i = 0 ; i < array.length ; i++){
+      if (array[i] === elemento){
+        return true;
+      } else {
+        return false;
+        }
+  }
 }
-
 function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser un array de enteros
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-
+  suma = 0;
+  promedio = 0;
+  for (var i = 0 ; i < resultadosTest.length ; i++){
+    suma = suma + resultadosTest[i];
+  }
+  promedio = suma / resultadosTest.length;    
+  return promedio;
 }
+
 
 function numeroMasGrande(numeros) {
   // "numeros" debe ser un array de enteros
   // Devuelve el número más grande
   // Tu código:
-
+  mayor = 0;
+  for (var i = 0 ; i < numeros.length ; i++){
+    if (numeros[i] > mayor){
+      mayor = numeros[i];
+    }
+  }    
+  return mayor;
 }
+
 
 function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Tu código:
-
+if (arguments.length === 0){
+  return 0;
+}
+if (arguments == 1){
+  return arguments;
+}
+producto = 1;
+  for (var i = 0 ; i < arguments.length ; i++){
+    producto =  producto * arguments[i];
+  }    
+  return producto;
 }
 
 function cuentoElementos(arreglo){
   // Realiza una función que retorne la cantidad de los elementos del arreglo que sean mayores a 18.
   // Tu código:
-
+  cantMayor18 = 0;
+  for (var i = 0 ; i < arreglo.length ; i++){
+    if (arreglo[i] > 18){
+      cantMayor18 = cantMayor18 + 1;
+    }
+  }    
+  return cantMayor18;
 }
 
 function todosIguales(arreglo) {
   // Escriba la función todosIguales, si todos los elementos de un arreglo son iguales
   // retornar true, caso contrario retornar false.
   // Tu código:
-  
-} 
+  for (var i = 0 ; i < arreglo.length ; i++){
+    if (arreglo[i] === arreglo[i+1]){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}  
 
 function mesesDelAño(array) {
   // Dado un array que contiene algunos meses del año desordenados, recorrer el array buscando los meses de 
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   // Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
-
+  var newArray = []
+  for (var i = 0 ; i < array.length ; i++){
+    if (array[i] === 'Enero' || array[i] === 'Marzo' || array[i] === 'Noviembre'){
+      newArray.push(array[i]);
+    } 
+  }
+  if(newArray.length < 3) return 'No se encontraron los meses pedidos';
+  return newArray;
 }
+
 
 function breakStatement(numero) {
   // Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
@@ -86,8 +142,20 @@ function breakStatement(numero) {
   // devolver: "Se interrumpió la ejecución"
   // Pista: usá el statement 'break'
   // Tu código:
-
+var array = [];
+var i = 0;
+ while (i < 10) {
+   if (numero === i){
+     return 'Se interrumpió la ejecución';
+   } else {
+      numero = numero + 2;
+      array.push(numero);
+      i++;
+     }
+ }
+ return array;
 }
+
 
 function continueStatement(numero) {
   // Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
@@ -97,8 +165,18 @@ function continueStatement(numero) {
   // y se continua con la siguiente iteración
   // Pista: usá el statement 'continue'
   // Tu código:
-  
+  var array = [];
+  for (var i = 0; i < 10; i++) {
+      numero = numero + 2;
+      if ( i == 5){
+        continue;
+      }
+      array.push(numero);
+  }
+   return array; 
 }
+
+
 
 function crearGato(nombre, edad) {
   // Crear un nuevo objeto con la propiedad "nombre" y el valor definido como el argumento "nombre".
@@ -106,7 +184,14 @@ function crearGato(nombre, edad) {
   // Agrega un método (funcion) llamado "meow" que devuelva el string "Meow!"
   // Devuelve el objeto
   // Tu código:
-
+  var gato = {
+    nombre: nombre,
+    edad: edad,
+    meow: function() {
+      return 'Meow!';
+    }
+  }
+  return gato;
 }
 
 function agregarPropiedad(objeto, property) {
@@ -114,7 +199,8 @@ function agregarPropiedad(objeto, property) {
   // Devuelve el objeto
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
   // Tu código:
-
+  objeto[property] = null;
+  return objeto;
 }
 
 function invocarMetodo(objeto, metodo) {
@@ -122,14 +208,14 @@ function invocarMetodo(objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
-  
+  objeto[metodo]();
 }
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
-
+ return objetoMisterioso.numeroMisterioso * 5;
 }
 
 function eliminarPropiedad(objeto, unaPropiedad) {
@@ -137,20 +223,31 @@ function eliminarPropiedad(objeto, unaPropiedad) {
   // tip: tenes que usar bracket notation
   // Devuelve el objeto
   // Tu código:
+  delete objeto[unaPropiedad];
+  return objeto;
 }
 
 function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
-
+  var usuario = {
+    nombre: nombre,
+    email: email,
+    password: password,
+  }
+  return usuario;
 }
 
 function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
-
+  if (usuario.email == null){
+    return false;
+  } else {
+    return true;
+  }  
 }
 
 function tienePropiedad(objeto, propiedad) {
@@ -158,14 +255,19 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-
+ if (objeto.hasOwnProperty(propiedad)){
+   return true;
+ } else {
+   return false;
+ }
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevaPassword"
   // Devuelve el objeto
   // Tu código:
-
+ usuario.password = nuevaPassword;
+ return usuario;
 }
 
 function agregarAmigo(usuario, nuevoAmigo) {
@@ -173,7 +275,8 @@ function agregarAmigo(usuario, nuevoAmigo) {
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
   // Tu código:
-
+ usuario.amigos.push(nuevoAmigo);
+ return usuario;
 }
 
 function sumarLikesDeUsuario(usuario) {
@@ -183,7 +286,11 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
-
+  sumarLikes = 0;
+  for (var i = 0; i < usuario.posts.length; i++) {
+    sumarLikes = sumarLikes + usuario.posts[i].likes;
+  }
+  return sumarLikes;
 }
 
 // No modificar nada debajo de esta línea
